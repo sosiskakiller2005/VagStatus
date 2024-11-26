@@ -9,6 +9,27 @@
       Title="MenuPage">
 
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width=".3*" />
+            <ColumnDefinition Width="1*" />
+        </Grid.ColumnDefinitions> 
         
+        <!--#region Меню-->
+        <StackPanel Margin="0 50 0 0">
+            <Image Source="/Resources/logo.png"/>
+            <Border BorderBrush="Black" Height="5"/>
+            <Button/>
+            <Border Background="White"  Height="3"/>
+            <Button Name="ProfileBtn" Content="Личный кабинет" Click="ProfileBtn_Click"/>
+            <Border Background="White"  Height="3"/>
+            <Button Name="AppointmentBTn" Content="Календарь записей" Click="AppointmentBTn_Click"/>
+            <Border Background="White" Height="3"/>
+            <Button Name="ClientsBtn" Content="Клиенты" Click="ClientsBtn_Click"/>
+            <Border Background="White" Height="3"/>
+            <Button Name="WarehouseBtn" Content="Склад" Click="WarehouseBtn_Click"/>
+        </StackPanel>
+        <!--#endregion-->
+
+        <Frame Name="MainFrm" Grid.Column="1"/>
     </Grid>
 </Page>

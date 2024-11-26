@@ -23,9 +23,14 @@ namespace VagStatus.Model
         public string Lastname { get; set; }
         public string Name { get; set; }
         public string Surname { get; set; }
+        public string Fullname { get
+            {
+                return Lastname + " " + Name + " " + Surname;
+            } }
         public int RoleId { get; set; }
         public string Password { get; set; }
         public byte[] Photo { get; set; }
+        public Nullable<int> AutosFixed { get; set; }
     
         public virtual ICollection<Appointment> Appointment { get; set; }
         public virtual Role Role { get; set; }

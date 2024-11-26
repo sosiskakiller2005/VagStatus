@@ -2,30 +2,12 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <Style TargetType="Button">
         <Setter Property="FontSize" Value="25" />
-        <Setter Property="FontFamily" Value="{StaticResource DaysOne}" />
-        <Setter Property="Foreground" Value="White" />
-        <Setter Property="Width" Value="300" />
+        <Setter Property="Foreground" Value="Black" />
+        <Setter Property="Width" Value="340" />
         <Setter Property="Height" Value="50" />
-        <Setter Property="Template">
-            <Setter.Value>
-                <ControlTemplate TargetType="Button">
-                    <Border 
-                            BorderBrush="Transparent"
-                            BorderThickness="1" 
-                            CornerRadius="0" 
-                            Padding="5">
-                        <Border.Background>
-                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                                <GradientStop Color="#FF036199" Offset="1"/>
-                                <GradientStop Color="#FF05A1FF" Offset="0"/>
-                            </LinearGradientBrush>
-                        </Border.Background>
-                        <ContentPresenter HorizontalAlignment="Center" 
-                                          VerticalAlignment="Center" />
-                    </Border>
-                </ControlTemplate>
-            </Setter.Value>
-        </Setter>
+        <Setter Property="Background" Value="#FDC101" />
+        <Setter Property="FontSize" Value="20" />
+        <Setter Property="BorderThickness" Value="0" />
     </Style>
     <Style x:Key="MenuBtn" TargetType="Button">
         <Setter Property="FontSize" Value="25" />
