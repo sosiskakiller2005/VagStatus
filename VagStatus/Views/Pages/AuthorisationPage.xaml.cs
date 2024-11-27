@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics.Eventing.Reader;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -40,6 +41,49 @@ namespace VagStatus.Views.Pages
             {
                 MessageBoxHelper.Error("Заполните все поля для ввода.");
             }
+        }
+
+        private void IdTb_GotFocus(object sender, RoutedEventArgs e)
+        {
+            if (IdTb.Text == "Код")
+            {
+                IdTb.Text = string.Empty;
+            }
+        }
+
+        private void IdTb_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (IdTb.Text == string.Empty)
+            {
+                IdTb.Text = "Код";
+            }
+        }
+
+        private void PasswordTb_GotFocus(object sender, RoutedEventArgs e)
+        {
+            if (PasswordTb.Password == "password")
+            {
+                PasswordTb.Password = string.Empty;
+            }
+        }
+
+        private void PasswordTb_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (PasswordTb.Password == string.Empty)
+            {
+                PasswordTb.Password = "password";
+            }
+        }
+
+        private static readonly Regex _regex = new Regex("[^0-9.-]+"); //regex that matches disallowed text
+        private static bool IsTextAllowed(string text)
+        {
+            return !_regex.IsMatch(text);
+        }
+
+        private void IdTb_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            e.Handled = !IsTextAllowed(e.Text);
         }
     }
 }

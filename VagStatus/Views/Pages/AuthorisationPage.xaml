@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:VagStatus.Views.Pages"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="800" d:DesignWidth="1440"
       Title="AuthorisationPage">
     <Grid>
         <Grid.RowDefinitions>
@@ -19,9 +19,9 @@
         <Image Grid.Row="1" Source="/Resources/logo.png" HorizontalAlignment="Left"/>
         <Border Grid.Row="3" CornerRadius="5" Background="#FDC101" Width="700" Height="150"/>
         <StackPanel Grid.Row="3" Width="700" Height="120">
-            <TextBox Name="IdTb" Text="Код" Background="Transparent" Margin="0 0 200 0"/>
+            <TextBox Name="IdTb" Text="Код" Background="Transparent" Margin="0 0 200 0" GotFocus="IdTb_GotFocus" LostFocus="IdTb_LostFocus" PreviewTextInput="IdTb_PreviewTextInput"/>
             <Border BorderBrush="Black" Width="500" BorderThickness="2"/>
-            <PasswordBox Name="PasswordTb" Password="password" Margin="0 0 200 0"/>
+            <PasswordBox Name="PasswordTb" Password="password" Margin="0 0 200 0" GotFocus="PasswordTb_GotFocus" LostFocus="PasswordTb_LostFocus"/>
         </StackPanel>
         <Button Name="OkBtn" Click="OkBtn_Click" Grid.Row="3" Style="{x:Null}" Height="70" Width="70" BorderBrush="Transparent" Margin="450 0 0 15">
             <Button.Background>
