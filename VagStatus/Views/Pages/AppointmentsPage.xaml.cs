@@ -45,7 +45,7 @@ namespace VagStatus.Views.Pages
                 AppGrid.DataContext = selectedApp;
                 string car = selectedApp.Car.Name;
                 string number = selectedApp.Car.Number;
-                string client = selectedApp.Car.Client.Lastname;
+                string client = selectedApp.Car.Client.Initials;
                 InfoTb.Text = $"{car} | {number} | {client}";
             }
             else

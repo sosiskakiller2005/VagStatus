@@ -23,6 +23,10 @@ namespace VagStatus.Model
         public string Lastname { get; set; }
         public string Name { get; set; }
         public string Surname { get; set; }
+        public string Initials { get
+            {
+                return $"{Lastname} {Name[0]}. {Surname[0]}.";
+            } }
         public string Email { get; set; }
     
         public virtual ICollection<Car> Car { get; set; }
