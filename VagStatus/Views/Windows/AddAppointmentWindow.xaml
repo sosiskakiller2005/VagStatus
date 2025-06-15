@@ -1,0 +1,65 @@
+﻿<Window x:Class="VagStatus.Views.Windows.AddAppointmentWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:VagStatus.Views.Windows"
+        mc:Ignorable="d"
+        Title="Добавить заказ" SizeToContent="WidthAndHeight" Background="#FFFDC101" WindowStartupLocation="CenterScreen">
+    <StackPanel Margin="20">
+        <TextBlock Text="Добавть запись" FontSize="25" FontWeight="SemiBold"/>
+        <Border Height="10"/>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+            </Grid.ColumnDefinitions>
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*" />
+                    <ColumnDefinition Width="10" />
+                    <ColumnDefinition Width="1*" />
+                </Grid.ColumnDefinitions>
+
+                <StackPanel>
+                    <TextBlock Text="Дата приема:" Height="50"/>
+                    <Border Height="10"/>
+                    <TextBlock Text="Марка и модель машины:" Height="50"/>
+                    <Border Height="10"/>
+                    <TextBlock Text="Номер машины:" Height="50"/>
+                    <Border Height="10"/>
+                    <TextBlock Text="Фамилия:" Height="50"/>
+                    <Border Height="10"/>
+                    <TextBlock Text="Имя:" Height="50"/>
+                    <Border Height="10"/>
+                    <TextBlock Text="Отчество:" Height="50"/>
+                    <Border Height="10"/>
+                    <TextBlock Text="Email:" Height="50"/>
+                    <Border Height="10"/>
+                    <TextBlock Text="Услуга:" Height="50"/>
+                </StackPanel>
+
+                <StackPanel Grid.Column="2">
+                    <DatePicker Name="DateDp"/>
+                    <Border Height="10"/>
+                    <TextBox Name="NameTb" />
+                    <Border Height="10"/>
+                    <TextBox Name="NumberTb" MaxLength="8"/>
+                    <Border Height="10"/>
+                    <TextBox Name="ClientLastnameTb"/>
+                    <Border Height="10"/>
+                    <TextBox Name="ClientNameTb"/>
+                    <Border Height="10"/>
+                    <TextBox Name="ClientSurnameTb"/>
+                    <Border Height="10"/>
+                    <TextBox Name="ClientEmailTb"/>
+                    <Border Height="10"/>
+                    <ComboBox Name="ServiceCmb"/>
+                    <Border Height="10"/>
+                    <Button Name="AddBtn" Content="Добавить" Click="AddBtn_Click"/>
+                </StackPanel>
+            </Grid>
+        </Grid>
+    </StackPanel>
+</Window>

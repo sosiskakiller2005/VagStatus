@@ -36,6 +36,8 @@
                 <TextBlock Text="{Binding User.Lastname}"/>
             </StackPanel>
         </Grid>
-        
+        <Border Height="10"/>
+        <Button Name="AddBtn" Content="Добавить" Click="AddBtn_Click" Width="500" HorizontalAlignment="Left" Margin="5"/>
+
     </StackPanel>
 </Page>

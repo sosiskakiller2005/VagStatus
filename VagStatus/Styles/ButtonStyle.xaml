@@ -3,7 +3,6 @@
     <Style TargetType="Button">
         <Setter Property="FontSize" Value="25" />
         <Setter Property="Foreground" Value="Black" />
-        <Setter Property="Width" Value="340" />
         <Setter Property="Height" Value="50" />
         <Setter Property="Background" Value="#FDC101" />
         <Setter Property="FontSize" Value="20" />

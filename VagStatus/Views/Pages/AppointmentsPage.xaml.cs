@@ -12,7 +12,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using VagStatus.AppData;
 using VagStatus.Model;
+using VagStatus.Views.Windows;
 
 namespace VagStatus.Views.Pages
 {
@@ -52,6 +54,24 @@ namespace VagStatus.Views.Pages
             {
                 AppGrid.DataContext = null;
                 InfoTb.Text = string.Empty;
+            }
+        }
+
+        private void AddBtn_Click(object sender, RoutedEventArgs e)
+        {
+            DateTime? selectedDate = AppCalendar.SelectedDate;
+            if (selectedDate.HasValue)
+            {
+                AddAppointmentWindow addAppointmentWindow = new AddAppointmentWindow(selectedDate.Value);
+                if (addAppointmentWindow.ShowDialog() == true)
+                {
+                    AppLb.ItemsSource = App.GetContext().Appointment.ToList();
+                }
+
+            }
+            else
+            {
+                MessageBoxHelper.Error("Пожалуйста, выберите дату.");
             }
         }
     }
