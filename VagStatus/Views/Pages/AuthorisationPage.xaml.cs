@@ -30,16 +30,16 @@ namespace VagStatus.Views.Pages
 
         private void OkBtn_Click(object sender, RoutedEventArgs e)
         {
-            if (IdTb.Text != string.Empty && PasswordTb.Password != string.Empty)
+            if (IdTb.Text == "Код" || PasswordTb.Password == "password")
+            {
+                MessageBoxHelper.Error("Заполните все поля для ввода.");
+            }
+            else
             {
                 if (AuthorisationHelper.Authorise(IdTb.Text, PasswordTb.Password))
                 {
                     FrameHelper.selectedFrame.Navigate(new MenuPage());
                 }
-            }
-            else
-            {
-                MessageBoxHelper.Error("Заполните все поля для ввода.");
             }
         }
 

@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:VagStatus.Views.Windows"
         mc:Ignorable="d"
+        xmlns:tp="clr-namespace:RoyT.TimePicker;assembly=RoyT.TimePicker"
         Title="Добавить заказ" SizeToContent="WidthAndHeight" Background="#FFFDC101" WindowStartupLocation="CenterScreen">
     <StackPanel Margin="20">
         <TextBlock Text="Добавть запись" FontSize="25" FontWeight="SemiBold"/>
@@ -25,6 +26,8 @@
                 <StackPanel>
                     <TextBlock Text="Дата приема:" Height="50"/>
                     <Border Height="10"/>
+                    <TextBlock Text="Время приема:" Height="50"/>
+                    <Border Height="10"/>
                     <TextBlock Text="Марка и модель машины:" Height="50"/>
                     <Border Height="10"/>
                     <TextBlock Text="Номер машины:" Height="50"/>
@@ -42,6 +45,8 @@
 
                 <StackPanel Grid.Column="2">
                     <DatePicker Name="DateDp"/>
+                    <Border Height="10"/>
+                    <tp:TimePickerSlider Name="AppointmentTp" Grid.Row="8" VerticalAlignment="Center" Width="500"/>
                     <Border Height="10"/>
                     <TextBox Name="NameTb" />
                     <Border Height="10"/>

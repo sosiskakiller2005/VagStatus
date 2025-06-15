@@ -65,7 +65,7 @@ namespace VagStatus.Views.Pages
                 AddAppointmentWindow addAppointmentWindow = new AddAppointmentWindow(selectedDate.Value);
                 if (addAppointmentWindow.ShowDialog() == true)
                 {
-                    AppLb.ItemsSource = App.GetContext().Appointment.ToList();
+                    AppLb.ItemsSource = App.GetContext().Appointment.ToList().Where(a => a.DateTime.Date == AppCalendar.SelectedDate);
                 }
 
             }

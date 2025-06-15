@@ -34,38 +34,58 @@ namespace VagStatus.Views.Windows
 
         private void AddBtn_Click(object sender, RoutedEventArgs e)
         {
-            if (DateDp.SelectedDate != null && !string.IsNullOrEmpty(NameTb.Text) && !string.IsNullOrEmpty(NumberTb.Text) && !string.IsNullOrEmpty(ClientSurnameTb.Text) 
+            if (DateDp.SelectedDate != null && !string.IsNullOrEmpty(NameTb.Text) && !string.IsNullOrEmpty(NumberTb.Text) && !string.IsNullOrEmpty(ClientSurnameTb.Text)
                 && !string.IsNullOrEmpty(ClientNameTb.Text) && !string.IsNullOrEmpty(ClientLastnameTb.Text) && !string.IsNullOrEmpty(ClientEmailTb.Text))
             {
-                Client newClient = new Client()
+                DateTime appDateTime = DateDp.SelectedDate.Value.AddHours(AppointmentTp.Time.Hour).AddMinutes(AppointmentTp.Time.Minute);
+
+                // Проверка на существующую запись  
+                var existingAppointment = _context.Appointment.FirstOrDefault(a => a.DateTime == appDateTime);
+                if (existingAppointment != null)
                 {
-                    Lastname = ClientLastnameTb.Text,
-                    Name = ClientNameTb.Text,
-                    Surname = ClientSurnameTb.Text,
-                    Email = ClientEmailTb.Text
-                };
-                _context.Client.Add(newClient);
-                _context.SaveChanges();
-                Car newCar = new Car()
+                    MessageBoxHelper.Error("На выбранное время уже существует запись.");
+                }
+                else
                 {
-                    Name = NameTb.Text,
-                    Number = NumberTb.Text,
-                    ClientId = newClient.Id
-                };
-                _context.Car.Add(newCar);
-                _context.SaveChanges();
-                Appointment newAppointment = new Appointment()
-                {
-                    DateTime = _selectedDate,
-                    User = AuthorisationHelper.selectedUser,
-                    CarId = newCar.Id,
-                    ServiceId = (ServiceCmb.SelectedItem as Service).Id
-                };
-                _context.Appointment.Add(newAppointment);
-                _context.SaveChanges();
-                MessageBoxHelper.Information("Запись успешно добавлена!");
-                DialogResult = true;
+                    Client newClient = new Client()
+                    {
+                        Lastname = ClientLastnameTb.Text,
+                        Name = ClientNameTb.Text,
+                        Surname = ClientSurnameTb.Text,
+                        Email = ClientEmailTb.Text
+                    };
+                    _context.Client.Add(newClient);
+                    _context.SaveChanges();
+
+                    Car newCar = new Car()
+                    {
+                        Name = NameTb.Text,
+                        Number = NumberTb.Text,
+                        ClientId = newClient.Id
+                    };
+                    _context.Car.Add(newCar);
+                    _context.SaveChanges();
+
+                    Appointment newAppointment = new Appointment()
+                    {
+                        DateTime = appDateTime,
+                        User = AuthorisationHelper.selectedUser,
+                        CarId = newCar.Id,
+                        ServiceId = (ServiceCmb.SelectedItem as Service).Id
+                    };
+                    _context.Appointment.Add(newAppointment);
+                    _context.SaveChanges();
+
+                    MessageBoxHelper.Information("Запись успешно добавлена!");
+                    DialogResult = true; 
+                }
+                
             }
+            else
+            {
+                MessageBoxHelper.Error("Пожалуйста, заполните все поля.");
+            }
+
         }
     }
 }

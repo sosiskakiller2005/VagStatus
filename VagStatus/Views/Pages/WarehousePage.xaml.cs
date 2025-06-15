@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using VagStatus.Model;
 
 namespace VagStatus.Views.Pages
 {
@@ -20,9 +21,11 @@ namespace VagStatus.Views.Pages
     /// </summary>
     public partial class WarehousePage : Page
     {
+        private static VagStatusDbEntities _context = App.GetContext();
         public WarehousePage()
         {
             InitializeComponent();
+            PartsLb.ItemsSource = _context.Part.ToList();
         }
     }
 }
