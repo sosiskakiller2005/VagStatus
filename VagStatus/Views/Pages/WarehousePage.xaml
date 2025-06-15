@@ -9,7 +9,7 @@
       Title="WarehousePage">
 
     <Grid>
-        <ListView Name="PartsLb" Width="200" HorizontalAlignment="Left" Height="200" VerticalAlignment="Top">
+        <ListView Name="PartsLb" Width="350" HorizontalAlignment="Left" Height="300" VerticalAlignment="Top" Margin="0 50 0 0">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Машина" DisplayMemberBinding="{Binding Car.Name}"/>

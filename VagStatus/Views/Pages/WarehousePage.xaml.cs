@@ -25,7 +25,7 @@ namespace VagStatus.Views.Pages
         public WarehousePage()
         {
             InitializeComponent();
-            PartsLb.ItemsSource = _context.Part.ToList();
+            PartsLb.ItemsSource = _context.CarPart.ToList();
         }
     }
 }
